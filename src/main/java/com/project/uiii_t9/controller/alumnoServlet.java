@@ -1,7 +1,7 @@
 package com.project.uiii_t9.controller;
 
 import com.project.uiii_t9.model.Alumno;
-import com.project.uiii_t9.model.dao.AlumnoDao;
+import com.project.uiii_t9.model.dao.alumnoDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,9 +21,9 @@ public class alumnoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Alumno> lista = AlumnoDao.getAll();
+        List<Alumno> lista = alumnoDao.getAll();
         request.setAttribute("listaAlumno", lista);
-        request.getRequestDispatcher("gestion-alumnos.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class alumnoServlet extends HttpServlet {
             nuevoAlumno.setCorreo(correo);
             nuevoAlumno.setSexo(sexo);
 
-            AlumnoDao.create(nuevoAlumno);
+            alumnoDao.create(nuevoAlumno);
         } catch (NumberFormatException e) {
             System.err.println("Error al transformar datos numéricos en el registro: " + e.getMessage());
             e.printStackTrace();
