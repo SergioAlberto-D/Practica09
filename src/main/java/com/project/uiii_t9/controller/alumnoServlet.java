@@ -16,14 +16,14 @@ import java.util.List;
 @WebServlet(name = "alumnoServlet", value = "/alumno")
 public class alumnoServlet extends HttpServlet {
 
-    private final alumnoDao mascotaDao = new alumnoDao();
+    private final alumnoDao alumnoDao = new alumnoDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Alumno> lista = AlumnoDao.getAll();
         request.setAttribute("listaAlumno", lista);
-        request.getRequestDispatcher("gestion-mascotas.jsp").forward(request, response);
+        request.getRequestDispatcher("gestion-alumnos.jsp").forward(request, response);
     }
 
     @Override
@@ -52,6 +52,6 @@ public class alumnoServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("mascota");
+        response.sendRedirect("alumno");
     }
 }
