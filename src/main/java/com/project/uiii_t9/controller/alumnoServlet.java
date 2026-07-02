@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet(name = "alumnoServlet", value = "/alumno")
 public class alumnoServlet extends HttpServlet {
 
-    private final alumnoDao mascotaDao = new alumnoDao();
+    private final alumnoDao alumnoDao = new alumnoDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
